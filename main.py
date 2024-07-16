@@ -12,6 +12,13 @@ app = Flask(__name__)
 @app.route('/')
 def text_to_gif():
     text = request.args.get('text')
+    if not text:
+        response = {
+            "error": "Invalid request",
+            "message": "The request is missing required parameters."
+        }
+    return jsonify(response), 400
+    
     print(text)
     run_code(text)
         
