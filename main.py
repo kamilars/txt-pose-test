@@ -17,7 +17,7 @@ def text_to_gif():
             "error": "Invalid request",
             "message": "The request is missing required parameters."
         }
-    return jsonify(response), 400
+        return jsonify(response), 400
     
     print(text)
     run_code(text)
@@ -39,7 +39,7 @@ def text_to_gif():
         }
         
         # Returning a tuple with response data and status code
-        return jsonify(data), 418
+        return jsonify(data), 404
 
     
 if __name__== "__main__":
