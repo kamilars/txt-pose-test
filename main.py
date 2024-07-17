@@ -28,8 +28,8 @@ def text_to_gif():
 
         # Send the file as response
         posefile = send_file(pose_file_path, mimetype='application/pose', as_attachment=True)
-        delete_file(pose_file_path)
-        return posefile
+        #delete_file(pose_file_path)
+        #return posefile
 
     except Exception as e:
         # Handle exceptions if the file is not found or other errors occur

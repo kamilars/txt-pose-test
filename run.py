@@ -23,13 +23,11 @@ def text_to_pose(text):
     if file_exists("result.pose"):
         print("result.pose has been generated...")
 
-
-'''
 def pose_to_gif(posedir):
     if file_exists(posedir):
         with open(posedir, "rb") as f:
             pose = Pose.read(f.read())
-        v = PoseVisualizer(pose) # THIS IS THE RESULTING GIF
+        v = PoseVisualizer(pose, thickness=15) # THIS IS THE RESULTING GIF
         #gif_bytes = v.draw_to_bytes()  # Get the GIF as binary data
         
         v.save_gif("result.gif", v.draw())
@@ -38,12 +36,15 @@ def pose_to_gif(posedir):
         return gif
     else:
         print("Seems like .pose file was not generated. Words might be missing in the vocabulary (Kamila: We still need to catch this exception smoothly + add statistics of files that were not generated)")
-'''
+
 
 def run_code(text):
     #text = input("Enter text: ") # Take user'r string. To be changed, but here's the word sequence to be translated
-    return text_to_pose(text)
+    text_to_pose(text)
+    gif = pose_to_gif("result.pose")
+    #delete_file("result.pose")
+    return gif
     
-    #gif = pose_to_gif(filename) # the resulting output
+    gif = pose_to_gif(filename) # the resulting output
     #delete_file(filename) # delete pose file
     #return gif
