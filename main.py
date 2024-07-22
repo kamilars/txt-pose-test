@@ -23,13 +23,10 @@ def text_to_gif():
     run_code(text)
         
     try:
-        # Assuming result.pose is in the same directory as your Flask app
-        pose_file_path = 'result.pose'
-
-        # Send the file as response
-        posefile = send_file(pose_file_path, mimetype='application/pose', as_attachment=True)
-        #delete_file(pose_file_path)
-        #return posefile
+        # pose_file_path = 'result.pose'
+        # posefile = send_file(pose_file_path, mimetype='application/pose', as_attachment=True)
+        return send_file('result.gif', mimetype='image/gif', as_attachment=True)
+        # send_file('result.gif', )
 
     except Exception as e:
         # Handle exceptions if the file is not found or other errors occur
